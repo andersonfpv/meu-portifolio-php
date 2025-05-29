@@ -1,3 +1,14 @@
+<?php
+    $itens = [
+        ['href' => 'http://', 'src' => '/img/twitter.png', "alt" => 'Twitter logo'],
+        ['href' => 'http://', 'src' => '/img/facebook.png', "alt" => 'Facebook logo'],
+        ['href' => 'http://', 'src' => '/img/linkedin.png', "alt" => 'LinkedIn logo'],
+        ['href' => 'http://', 'src' => '/img/youtube.png', "alt" => 'Youtube logo'],
+        
+    ];
+
+?>
+
 <section class="flex gap-x-3">
     
             <!-- Título e Descrição -->
@@ -7,18 +18,15 @@
                     Atualmente trabalho como Analista programador no <a href="https://www.a12.com/santuario">Santuário Nacional de Nossa Senhora Aparecida.</a>  Concluí o curso de Análise e desenvolvimento de sistemas na <a href="https://www.fatecguaratingueta.edu.br/">Fatec Guaratinguetá.</a> Me considero uma pessoa que tem facilidade de aprendizado e trabalho bem em equipe, estou sempre disposto a novos desafios e oportunidades de crescimento pessoal e profissional. Estou em busca de aperfeiçoar os meus conhecimentos para que eu possa me tornar uma profissional mais completo.
                 </p>
                 <ul class="flex gap-x-3 mt-3">
-                    <li><a href="http://" target="_blank">
-                        <img class="h-8 hover:animate-bounce" src="/img/twitter.png" alt="Twitter logo">
-                    </a></li>
-                    <li><a href="http://" target="_blank">
-                        <img class="h-8 hover:animate-bounce" src="/img/facebook.png" alt="Facebook logo">
-                    </a></li>
-                    <li><a href="http://" target="_blank">
-                        <img class="h-8 hover:animate-bounce" src="/img/linkedin.png" alt="LinkedIn logo">
-                    </a></li>
-                    <li><a href="http://" target="_blank">
-                        <img class="h-8 hover:animate-bounce" src="/img/youtube.png" alt="youtube logo">
-                    </a></li>
+                    <?php foreach ($itens as $item): ?>
+                        <li>
+                            <a href="<?=$item['href']?>" target="_blank">
+                                <img class="h-8 hover:animate-bounce" src="<?=$item['src']?>" alt="<?=$item['alt']?>">
+                            </a>
+                    </li>
+
+                    <?php endforeach; ?>
+
                 </ul>
             </div>
     
