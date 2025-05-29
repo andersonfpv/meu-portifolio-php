@@ -1,21 +1,106 @@
-<div class="bg-slate-800 rounded-lg p-3 flex items-center">
-                <div class="w-1/5 content-stretch">
-                    <img class="h-30 hover:animate-bounce mx-auto" src="/img/projeto.jpg" alt="Projeto de desenvolvimento">
+<?php 
+     $projetos = [
+
+            [
+                "titulo" => "Meu Portfolio",
+                "finalizado" => false,
+                "ano" => 2025,
+                "descricao" => "Meu primeiro Portfolio. Escrito em PHP e HTML.",
+                "stack" => ["PHP", "HTML", "CSS", "JS"],
+                "img" => "/img/projeto1.png"
+            ],
+            [
+                "titulo" => "Lista de Tarefas",
+                "finalizado" => true,
+                "ano" => 2022,
+                "descricao" => "Lista de Tarefas. Escrito em PHP e HTML.",
+                "stack" => ["PHP", "HTML", "CSS", "JS"],
+                "img" => "/img/projeto.jpg"
+            ],
+            [
+                "titulo" => "Controle de Leitura de Vídeos",
+                "finalizado" => true,
+                "ano" => 2024,
+                "descricao" => "Lista de Livros. Escrito em PHP e HTML.",
+                "stack" => ["PHP", "HTML", "CSS", "JS"],
+                "img" => "/img/projeto.jpg"
+            ],
+            [
+                "titulo" => "Mais um Projeto",
+                "finalizado" => false,
+                "ano" => 2025,
+                "descricao" => "Projeto secreto em andamento. Escrito em PHP e HTML.",
+                "stack" => ["PHP", "HTML", "CSS", "JS"],
+                "img" => "/img/projeto.jpg"
+            ],
+            // "Lista de Tarefas",
+            // "Controle de Leitura de Livros",
+            // "mais um projeto",
+
+        ];
+
+?>
+
+<?php foreach($projetos as $projeto): ?>
+
+    <div class="bg-slate-800 rounded-lg p-3 flex items-center space-x-3">
+
+        <div class="w-1/5 flex items-center justify-middle">
+
+            <img src="<?= $projeto['img'] ?>" class="w-42 rounded-md">
+
+        </div>
+
+        <div class="w-4/5 space-y-3">
+
+            <div class="flex gap-3 justify-between">
+
+                <h3 class="font-semibold text-xl">
+
+                    <?php if ($projeto['finalizado']): ?>
+
+                        ✅
+
+                    <?php endif; ?>
+
+                    <?= $projeto['titulo'] ?>
+
+                    <?php if ($projeto['finalizado']): ?>
+
+                        <span class="text-xs text-grey-400 opacity-50 italic">( Finalizado em <?= $projeto['ano'] ?> )</span></h3>
+
+                    <?php else: ?>
+
+                        <span class="text-xs text-grey-400 opacity-50 italic">( Em desenvolvimento )</span></h3>
+
+                    <?php endif; ?>
+
+                <div class="space-x-1">
+
+                    <?php 
+
+                        $colors = ['fuchsia', 'lime', 'sky', 'rose', 'amber', 'teal', 'purple'];
+
+                        foreach($projeto['stack'] as $posicao => $language):
+
+                    ?>
+
+                        <span class="bg-<?= $colors[$posicao] ?>-400 text-<?= $colors[$posicao] ?>-900 rounded-md px-2 py-1 font-semibold text-xs">
+
+                            <?= $language ?>
+
+                        </span>
+
+                    <?php endforeach; ?>
+
                 </div>
-                <div class="w-4/5 space-y-3">
-                    <div class="flex gap-3">
-                        <h3 class="font-semibold text-xl">
-                            ✅ Projeto 1 <span class="text-xs text-gray-400 opacity-50 italic">(finalizado em 2024)</span>
-                        </h3>
-                        <div>
-                            <span class="bg-fuchsia-400 text-fuchsia-900 rounded-md px-2 py-1 font-semibold text-xs"> PHP</span>
-                            <span class="bg-lime-400 text-lime-900 rounded-md px-2 py-1 font-semibold text-xs">Javascript</span>
-                            <span class="bg-sky-400 text-sky-900 rounded-md px-2 py-1 font-semibold text-xs">HTML</span>
-                            <span class="bg-rose-400 text-rose-900 rounded-md px-2 py-1 font-semibold text-xs">CSS</span>
-                        </div>
-                    </div>
-                     <p class="leading-6">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae deserunt neque tempore cumque iste obcaecati harum voluptatibus? Earum aut aliquid quis? Voluptas amet neque mollitia magnam? Voluptatibus veritatis asperiores voluptate?
-                    </p>
-                </div>
+
             </div>
+
+            <p class="leading-6"><?= $projeto['descricao'] ?></p>
+
+        </div>
+
+    </div>
+
+<?php endforeach; ?>
